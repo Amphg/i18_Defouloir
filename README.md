@@ -13,8 +13,8 @@ To make the demo works, you will just need a computer with a webcam and a microp
 
 To make this project run you need the following :
 
-Openframeworks's last version 0.9.8 (http://openframeworks.cc/download/) 
-ofxFFT-master library (https://github.com/julapy/ofxFFT)
+  * Openframeworks's last version 0.9.8 (http://openframeworks.cc/download/) 
+  * ofxFFT-master library (https://github.com/julapy/ofxFFT)
     
     
 ### Steps
