@@ -34,8 +34,10 @@ Then it's time to initialize the ofxFFT library that is packed with an easy way 
 Now, in the update function, the point is to get the coordinates of each vertices and stock it into an array of vectors so that we can access each of them using their index. This way we can manipulate their coordinates since they are vectors, using sound data so we can throw the updated vector coordinates into the original vertices coordinates.
 
  Firstly, we have to create two vectors, each of them stocking the vertices's coordinates in x,y and z.
-    ```vector<ofVec3f> & vertsOriginal = meshOriginal.getVertices();
-	    vector<ofVec3f> & vertsWarped = meshWarped.getVertices();```
+    ```
+    vector<ofVec3f> & vertsOriginal = meshOriginal.getVertices();
+    vector<ofVec3f> & vertsWarped = meshWarped.getVertices();
+    ```
  
  Then, we have to put the number of vertices into an integer to create an array with the length of that number of vertices (so that audio data can be assigned to modify each vertices). The ```fftLive.getFFtPeakData(float*,int);``` line permits to stock audio data inside an array of float pointers.
   ```
