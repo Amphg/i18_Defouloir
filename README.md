@@ -48,15 +48,15 @@ Now, in the update function, the point is to get the coordinates of each vertice
   
  Finally, the mesh displacement happens using a ```for()``` loop. The loop
  ```
- 	for (int i = numOfVerts; i>=0; i--) {
-		//ofFloatColor sampleColor(webcam.getPixels()[i] / 255.f;	 webcam.getPixels()[i + 1] / 255.f;	 webcam.getPixels()[i + 2] / 255.f; );	// b
-float audioValue = audioData[i];
-ofVec3f & vertOriginal = vertsOriginal[i];
-ofVec3f & vertWarped = vertsWarped[i];
-ofVec3f direction = vertOriginal.getNormalized();
-vertWarped = vertOriginal + direction * meshDisplacement * audioValue;
-meshWarped.setVertex(i, vertWarped);
-  //meshWarped.setColors(i, sampleColor);
+for (int i = numOfVerts; i>=0; i--) {
+       //ofFloatColor sampleColor(webcam.getPixels()[i] / 255.f;	 webcam.getPixels()[i + 1] / 255.f;	 webcam.getPixels()[i + 2] / 255.f; );	// b
+	float audioValue = audioData[i];
+	ofVec3f & vertOriginal = vertsOriginal[i];
+	ofVec3f & vertWarped = vertsWarped[i];
+	ofVec3f direction = vertOriginal.getNormalized();
+	vertWarped = vertOriginal + direction * meshDisplacement * audioValue;
+	meshWarped.setVertex(i, vertWarped);
+      //meshWarped.setColors(i, sampleColor);
 		
 
 		
