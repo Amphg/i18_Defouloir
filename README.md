@@ -24,7 +24,7 @@ The demo is divided into 2 projects folder as the objectives of the demo is more
 #### Effet de Sphere 3D```
 
 The idea is to initialize a 3D sphere mesh. For that, openframeworks has a powerful way to initialize a mesh as a sphere directly stocking a mesh we called meshWarped in : 
-```meshWarped = ofMesh::sphere(250 ,20);```
+ * ```meshWarped = ofMesh::sphere(250 ,20);```
 The first argument being the radius and the second modifying the sphere structure.
 The mesh is made of different vertices which coordinates are stocked inside the sphere method. 
 
@@ -32,4 +32,32 @@ Then it's time to initialize the ofxFFT library that is packed with an easy way 
 ```fftLive.setup(); ```
 
 Now, in the update function, the point is to get the coordinates of each vertices and stock it into an array of vectors so that we can access each of them using their index. This way we can manipulate their coordinates since they are vectors, using sound data so we can throw the updated vector coordinates into the original vertices coordinates.
+
+ Firstly, we have to create two vectors, each of them stocking the vertices's coordinates in x,y and z.
+    ```vector<ofVec3f> & vertsOriginal = meshOriginal.getVertices();
+	    vector<ofVec3f> & vertsWarped = meshWarped.getVertices();```
+ 
+ Then, we have to put the number of vertices into an integer to create an array with the length of that number of vertices (so that audio data can be assigned to modify each vertices). The ```fftLive.getFFtPeakData(float*,int);``` line permits to stock audio data inside an array of float pointers.
+  ```
+ int numOfVerts = meshWarped.getNumVertices();
+	float * audioData = new float[numOfVerts];
+	fftLive.getFftPeakData(audioData, numOfVerts);
+  ```
+  
+ Finally, the mesh displacement happens using a ```for()``` loop. The loop
+ ```
+ 	for (int i = numOfVerts; i>=0; i--) {
+		//ofFloatColor sampleColor(webcam.getPixels()[i] / 255.f;	 webcam.getPixels()[i + 1] / 255.f;	 webcam.getPixels()[i + 2] / 255.f; );	// b
+		float audioValue = audioData[i];
+		ofVec3f & vertOriginal = vertsOriginal[i];
+		ofVec3f & vertWarped = vertsWarped[i];
+		
+		ofVec3f direction = vertOriginal.getNormalized();
+		vertWarped = vertOriginal + direction * meshDisplacement * audioValue;
+		meshWarped.setVertex(i, vertWarped);
+  //meshWarped.setColors(i, sampleColor);
+		
+
+		
+	}```
 
