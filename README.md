@@ -87,7 +87,11 @@ webcam.draw(0, 0, 320, 240);
 	meshWarped.drawFaces();
 	cam.end();
 ```
+Some pictures of the effect. It needs polish and optimisation as the GPU is very demanding, even if the webcam input is at a small resolution (320x240).
+![Image of Effect](https://image.noelshack.com/fichiers/2017/48/1/1511738746-20171126-235817.jpg)
 
+![Image of Effect](https://image.noelshack.com/fichiers/2017/48/1/1511738743-20171126-235818.jpg)
+![Image of Effect](https://image.noelshack.com/fichiers/2017/48/1/1511738748-20171127-000001.jpg)
 
 #### Effet de distorsion
 
