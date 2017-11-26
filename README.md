@@ -39,25 +39,39 @@ Now, in the update function, the point is to get the coordinates of each vertice
     vector<ofVec3f> & vertsWarped = meshWarped.getVertices();
     ```
  
- Then, we have to put the number of vertices into an integer to create an array with the length of that number of vertices (so that audio data can be assigned to modify each vertices). The ```fftLive.getFFtPeakData(float*,int);``` line permits to stock audio data inside an array of float pointers.
-  ```
+ Then, we have to put the number of vertices into an integer to create an array with the length of that number of vertices (so that audio data can be assigned to modify each vertices). The ```fftLive.getFFtPeakData(float*,int);``` line permits to stock audio data inside an array of float pointers. We also have to clear the colors of the mesh as the update function is like the draw function, it repeats itself. We also have to resize the sampleColor vector so it has the length of the number of verticies.
+ 
+ ```
+  meshWarped.clearColors();
  int numOfVerts = meshWarped.getNumVertices();
-	float * audioData = new float[numOfVerts];
-	fftLive.getFftPeakData(audioData, numOfVerts);
+float * audioData = new float[numOfVerts];
+fftLive.getFftPeakData(audioData, numOfVerts);
   ```
   
- Finally, the mesh displacement happens using a ```for()``` loop. The loop goes through every vertices of the mesh and change its coordinates depending on the audioValue float. Then, we set the new coordinates of the warped mesh and the new color grabbed from webcam pixels - which actually does not work because of a problem with ```meshWarped.setColors``` method.
+ Finally, the mesh displacement happens using a ```for()``` loop. The loop goes through every vertices of the mesh and change its coordinates depending on the audioValue float. Then, we set the new coordinates of the warped mesh and the new color grabbed from webcam pixels - which actually does not work because of a problem with ```meshWarped.setColors``` method. #####Update, it does work now. I found a solution.
+ The solution add the next lines ; first we need to initialize our two vectors vertOriginal and vertWarped here and not in the loop and give them placeholder values. Secondly, we add an array of color in the mesh with the size of sampleColor.
+ ```
+ ofVec3f & vertOriginal = vertsOriginal[0];
+ofVec3f & vertWarped = vertsWarped[0];
+ meshWarped.addColors(sampleColor);
+ 
+ ```
+ We can now add the updated version of the color grabber. As for an explanation, webcam's pixels are stored in an array and rgb value are stored in a line, thus having the following indexes in an array for 1 pixel ; red value : i | green value : i+1 | blue value : i+2
  
  ```
 for (int i = numOfVerts; i>=0; i--) {
        //ofFloatColor sampleColor(webcam.getPixels()[i] / 255.f;	 webcam.getPixels()[i + 1] / 255.f;	 webcam.getPixels()[i + 2] / 255.f; );	// b
 	float audioValue = audioData[i];
-	ofVec3f & vertOriginal = vertsOriginal[i];
-	ofVec3f & vertWarped = vertsWarped[i];
+	vertOriginal = vertsOriginal[i];		// Old version ofVec3f & vertOriginal = vertsOriginal[i];
+	vertWarped = vertsWarped[i];		// Old version ofVec3f & vertWarped = vertsWarped[i];
+	//We add the color grabber. 
+		sampleColor[i].r = webcam.getPixels()[i*3] / 255.f;
+		sampleColor[i].g = webcam.getPixels()[(i*3  + 1)] / 255.f; 
+		sampleColor[i].b = webcam.getPixels()[(i*3 + 2)] / 255.f;
 	ofVec3f direction = vertOriginal.getNormalized();
 	vertWarped = vertOriginal + direction * meshDisplacement * audioValue;
 	meshWarped.setVertex(i, vertWarped);
-      //meshWarped.setColors(i, sampleColor);				
+        meshWarped.setColors(i, sampleColor);				
 	}
 ```
 Finally, the last line of update that permits to start with a fresh new audio data array after each iteration.
@@ -71,9 +85,7 @@ Then, we just need to put in the draw function everything that we need to make t
 ```
 webcam.draw(0, 0, 320, 240);
 	cam.begin();
-	webcam.bind();
-	meshWarped.drawWireframe();
-	webcam.unbind();
+	meshWarped.drawFaces();
 	cam.end();
 ```
 
