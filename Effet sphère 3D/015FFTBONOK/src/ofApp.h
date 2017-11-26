@@ -32,7 +32,7 @@ public:
 	ofMesh meshOriginal;
 	ofMesh meshWarped;
 	ofEasyCam cam;
-
+	vector<ofFloatColor> sampleColor;
 
 	ofMesh mesh;
 	ofVideoGrabber webcam;

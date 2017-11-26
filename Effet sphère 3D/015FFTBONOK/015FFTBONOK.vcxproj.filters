@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxBaseGui.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxButton.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxGuiGroup.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxLabel.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxPanel.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxSlider.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxSliderGroup.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxGui\src\ofxToggle.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxFFT-master\src\ofxFFTBase.cpp">
+      <Filter>addons\ofxFFT-master\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxFFT-master\src\ofxFFTFile.cpp">
+      <Filter>addons\ofxFFT-master\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxFFT-master\src\ofxFFTLive.cpp">
+      <Filter>addons\ofxFFT-master\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxFFT-master\libs\fft.cpp">
+      <Filter>addons\ofxFFT-master\libs</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{8b52aef1-e17d-43d6-ba52-9799ea9b8477}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxGui">
+      <UniqueIdentifier>{e0cec241-0d19-43f0-a68c-ad4c72b11155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxGui\src">
+      <UniqueIdentifier>{82635d46-d8fe-4a76-bdef-f0587c34a68f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFFT-master">
+      <UniqueIdentifier>{d2ed7718-7a42-421e-9b8e-ea4e7dba59ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFFT-master\src">
+      <UniqueIdentifier>{7e69b7b5-b9ba-430a-a574-d10c48303321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFFT-master\libs">
+      <UniqueIdentifier>{e739c918-44b9-4382-bf6d-cf4980fd9420}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxBaseGui.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxButton.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxGui.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxGuiGroup.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxLabel.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxPanel.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxSlider.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxSliderGroup.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxGui\src\ofxToggle.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxFFT-master\src\ofxFFTBase.h">
+      <Filter>addons\ofxFFT-master\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxFFT-master\src\ofxFFTFile.h">
+      <Filter>addons\ofxFFT-master\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxFFT-master\src\ofxFFTLive.h">
+      <Filter>addons\ofxFFT-master\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxFFT-master\libs\fft.h">
+      <Filter>addons\ofxFFT-master\libs</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>
