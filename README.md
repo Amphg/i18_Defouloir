@@ -58,13 +58,16 @@ for (int i = numOfVerts; i>=0; i--) {
 	vertWarped = vertOriginal + direction * meshDisplacement * audioValue;
 	meshWarped.setVertex(i, vertWarped);
       //meshWarped.setColors(i, sampleColor);				
-	}```
+	}
+```
 Finally, the last line of update that permits to start with a fresh new audio data array after each iteration.
+
 ```
 delete[] audioData;
 ```
 
 Then, we just need to put in the draw function everything that we need to make the mesh and the webcam appear, binding its data on the mesh.
+
 ```
 webcam.draw(0, 0, 320, 240);
 	cam.begin();
@@ -79,6 +82,7 @@ webcam.draw(0, 0, 320, 240);
 
 This second type of effect was the first try at modifying the webcam stream using audio data.
 We need to setup our file properly in the ofApp.cpp with variables declared in ofApp.h
+
 ```
 fftLive.setup();
 vidGrabber.setup(w, h);
@@ -119,8 +123,11 @@ Now we can update everything we set up.
 fftLive.update();
 vidGrabber.update();
 float * AudioData = new float[vidGrabber.getWidth()*vidGrabber.getHeight()]; // Just like the previous exemple, we need to put our audio data somewhere.
-fftLive.getFftPeakData(AudioData, vidGrabber.getWidth()*vidGrabber.getHeight()); ```
+fftLive.getFftPeakData(AudioData, vidGrabber.getWidth()*vidGrabber.getHeight()); 
+```
+
 We can now extrude the mesh, browsing through every pixels of the webcam since the mesh and the webcam surface are the same.
+
 ```
 for (int i = 0; i<vidGrabber.getWidth()*vidGrabber.getHeight(); i++) {
 			
@@ -151,7 +158,9 @@ float * AudioData2 = new float[w*h * 3];
 fftLive.getFftPeakData(AudioData2, w*h * 3);
 fftLive.getFftPeakData(AudioData, w*h * 3);
 ```
+
 Then we just need to distort the webcam pixels stored in pixels. Just as a precision, "amplitude", "noise", "wavelength" and the other named value are initialized as arbitrary values in the ofApp.h.
+
 ```
 for (int i = 1; i < (w*h * 3); i++) {
 float valeur = AudioData[i];
@@ -169,6 +178,7 @@ videoTexture.loadData(output1, w, h, GL_RGB); // We load the pixels valors store
 ```
 
 Finally, we just have to finish by calling everything in the draw function.
+
 ```
 ofDisableDepthTest();
 ofEnableDepthTest();
