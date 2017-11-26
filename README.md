@@ -60,7 +60,6 @@ ofVec3f & vertWarped = vertsWarped[0];
  
  ```
 for (int i = numOfVerts; i>=0; i--) {
-       //ofFloatColor sampleColor(webcam.getPixels()[i] / 255.f;	 webcam.getPixels()[i + 1] / 255.f;	 webcam.getPixels()[i + 2] / 255.f; );	// b
 	float audioValue = audioData[i];
 	vertOriginal = vertsOriginal[i];		// Old version ofVec3f & vertOriginal = vertsOriginal[i];
 	vertWarped = vertsWarped[i];		// Old version ofVec3f & vertWarped = vertsWarped[i];
