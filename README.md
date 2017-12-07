@@ -209,3 +209,10 @@ wuv.draw();
 ```
 
 And that's pretty much it.
+
+
+
+________________________________________
+### Launching the program
+
+For each program, you have to open the project folder, go to bin and then run "ProjectName"_debug.exe. It should work.
